@@ -35,7 +35,7 @@ function walkForArr(arr) {
 
 function walkForObj(obj) {
     var quant = 0;
-    for (var i = 0; i < 100000; i++) {
+    for (var i = 0; i < Object.keys(obj).length; i++) {
         quant++;
     }
 }
