@@ -13,8 +13,8 @@ for (var i = 0; i < 100000; i++) {
     arr1[i] = Math.floor(Math.random() * 1000).toString();
 }
 
-for (var i = 0; i < arr1.length; i++) {
-    var key = "a" + (arr1[i] * Math.random());
+for (var i = 0; i < 100000; i++) {
+    var key = "a" + i * Math.random();
     obj2[key] = Math.floor(Math.random() * 1000).toString();
 }
 
@@ -40,10 +40,10 @@ function walkForObj(obj) {
     }
 }
 
-function bench(f) {
+function bench(f, obj) {
     var date = new Date();
-    for (var i = 0; i < 100; i++) {
-        f();
+    for (var i = 0; i < 3; i++) {
+        f(obj);
     }
     return new Date() - date;
 }
@@ -56,12 +56,12 @@ var timeInObj1 = 0,
     timeForArr = 0;
 
 for (var i = 0; i < 100; i++) {
-    timeInObj1 += bench(walkIn(obj1));
-    timeInObj2 += bench(walkIn(obj2));
-    timeInArr += bench(walkIn(arr1));
-    timeForObj1 += bench(walkForObj(obj1));
-    timeForObj2 += bench(walkForObj(obj2));
-    timeForArr += bench(walkForArr(arr1));
+    timeInObj1 += bench(walkIn, obj1);
+    timeInObj2 += bench(walkIn, obj2);
+    timeInArr += bench(walkIn, arr1);
+    timeForObj1 += bench(walkForObj, obj1);
+    timeForObj2 += bench(walkForObj, obj2);
+    timeForArr += bench(walkForArr, arr1);
 }
 
 alert('Время walkIn для obj1: ' + timeInObj1 + 'мс');
