@@ -86,7 +86,6 @@ function reduceTable() {
     var initialElementHeight = selector.offsetHeight;
     selector.style.width = initialElementWidth / 2 + "px";
     selector.style.height = initialElementHeight / 2 + "px";
-    console.log(initialElementWidth);
 }
 
 function checkFlexTable(f) {
