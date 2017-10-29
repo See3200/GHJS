@@ -43,7 +43,6 @@ function bench(f, obj) {
     return new Date() - date;
 }
 
-
 var timeInObj1 = bench(walkIn, obj1);
     timeInObj2 = bench(walkIn, obj2);
     timeInArr = bench(walkIn, arr1);
