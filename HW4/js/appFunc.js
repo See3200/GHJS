@@ -228,4 +228,3 @@ function Aborigine(health, mind) {
     }
 
 }
-var aborigine1 = new Aborigine(10, -5);

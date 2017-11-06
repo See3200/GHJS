@@ -218,6 +218,7 @@ Hunter.prototype.eat = function(food) {
     }
 }
 
+//*********************************************   Aborigine   **************************//
 
 function Aborigine(health, mind) {
 
