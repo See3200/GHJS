@@ -227,5 +227,12 @@ function Aborigine(health, mind) {
 
 }
 
-Aborigine.prototype = Object.create(Animal.prototype);
+Aborigine.prototype = Object.create(Human.prototype);
 Aborigine.prototype.constructor = Aborigine;
+
+Aborigine.prototype.terror = function(time) {
+    var time = time || 3000;
+    var win = document.defaultView;
+    console.log("Allah akbar!!!");
+    setTimeout(win.Aborigine.prototype.die, time);
+}

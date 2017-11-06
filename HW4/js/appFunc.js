@@ -220,4 +220,12 @@ function Aborigine(health, mind) {
 
     this.type = "aborigine";
 
+    this.terror = function(time) {
+        var time = time || 3000;
+        var win = document.defaultView;
+        console.log("Allah akbar!!!");
+        setTimeout(this.die.bind(win), time);
+    }
+
 }
+var aborigine1 = new Aborigine(10, -5);
