@@ -1,10 +1,10 @@
 const matrix = [
     ['.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.'],
     ['.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.'],
-    ['.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.'],
+    ['.','.','.','.','.','*','.','.','.','.','.','.','.','.','.','.'],
     ['.','.','.','.','.','.','*','*','*','*','*','.','.','.','.','.'],
-    ['.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.'],
-    ['.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.'],
+    ['.','.','.','.','.','.','.','.','.','.','.','*','.','.','.','.'],
+    ['.','.','.','.','.','.','.','.','.','.','.','.','*','.','.','.'],
     ['.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.'],
     ['.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.'],
     ['.','.','.','*','.','.','.','.','.','.','.','.','.','.','.','.'],
@@ -22,12 +22,37 @@ let lengthX = matrix[0].length;
 let coorY = 0;
 let coorX = 0;
 
-function defineCoors(lenY, lenX) {
+function defineStartCoors(lenY, lenX) {
     let randomX = -0.5 + Math.random() * lenX;
     let randomY = -0.5 + Math.random() * lenY;
     coorX = Math.round(randomX);
     coorY = Math.round(randomY);
-    return matrix[coorY][coorX];
+    if (matrix[coorY][coorX] == ".") {
+        return matrix[coorY][coorX];
+    } else {
+        defineStartCoors(lenY, lenX);
+    }
+}
+
+function defineNextCoors() {
+    let randomX = Math.round(- 1.5 + Math.random() * 3);
+    let randomY = Math.round(- 1.5 + Math.random() * 3);
+    if ((randomY == 0 || randomY == -0) && (randomX == 0 || randomX == -0)) {
+        return defineNextCoors();
+    }
+    let tempCoorX = coorX + randomX;
+    let tempCoorY = coorY + randomY;
+    if ( (tempCoorY == matrix.length) || (tempCoorY == -1) || (tempCoorX == matrix[0].length) ||
+        (tempCoorX == -1) ) {
+        return defineNextCoors();
+    }
+    if (matrix[tempCoorY][tempCoorX] == ".") {
+        coorX = tempCoorX;
+        coorY = tempCoorY;
+        return matrix[coorY][coorX];
+    } else {
+        return defineNextCoors();
+    }
 }
 
 function render(){
@@ -43,15 +68,11 @@ function render(){
     matrix[coorY][coorX] = ".";
 }
 
+defineStartCoors(lengthY, lengthX);
+
 function moveAnimal(){
-    if (defineCoors(lengthY, lengthX) == ".") {
-        render();
-    } else {
-        let message = `Jump over matrix[${coorY}][${coorX}]`;
-        console.log ( '%c%s', 'color: #800000; font: 1.3rem Verdana; margin-left: 20px; background-color: #c0c0c0',
-            message );
-    }
+    defineNextCoors();
+    render();
 }
 
-setInterval(moveAnimal, 1000);
-
+setInterval(moveAnimal, 500);
