@@ -1,6 +1,9 @@
 
-import Animal from "./animal.js";
 import {Mouse} from "./mouse.js";
-import {Deer} from "./deer.js";
+import {Hunter} from "./deer.js";
 
 let mouse1 = new Mouse(5, 5);
+let hunter1 = new Hunter (30, 20, 20);
+
+console.log(mouse1);
+console.log(hunter1);

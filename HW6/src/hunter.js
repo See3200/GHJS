@@ -1,4 +1,4 @@
-import Human from "./human.js";
+import {Human} from "./human.js";
 
 export class Hunter extends Human {
     constructor(health, mind, skills) {
