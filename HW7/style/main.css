@@ -1,0 +1,22 @@
+
+.row {
+    margin: 0;
+    padding: 0;
+}
+
+.row span {
+    display: inline-block;
+    background-color: #ffe17a;
+    border: 1px solid #8392ff;
+    width: 15px;
+    height: 15px;
+    padding: 2px;
+}
+span.bush {
+    background-color: #44ff48;
+    border-radius: 50%;
+}
+span.animal {
+    background-image: url(../images/dog.png);
+    background-size: cover;
+}
