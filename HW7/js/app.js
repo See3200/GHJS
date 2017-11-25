@@ -75,7 +75,7 @@ function render(){
         }
         output += `</div>`;
     }
-    document.write(output);
+    document.body.innerHTML = output;
     matrix[coorY][coorX] = ".";
 }
 
@@ -84,8 +84,6 @@ defineStartCoors(lengthY, lengthX);
 function moveAnimal(){
     defineCoors();
     render();
-    document.close();
 }
 
 setInterval(moveAnimal, 500);
-//moveAnimal();
