@@ -1,28 +1,45 @@
 
-const matrix = [
-    ['.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.'],
-    ['.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.'],
-    ['.','.','.','.','.','*','.','.','.','.','.','.','.','.','.','.','.','.','.','.'],
-    ['.','.','.','.','.','.','*','*','*','*','*','.','.','.','.','.','.','.','.','.'],
-    ['.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.'],
-    ['.','.','.','.','.','.','.','.','.','.','.','.','*','.','.','.','.','.','.','.'],
-    ['.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.'],
-    ['.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.'],
-    ['.','.','.','*','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.'],
-    ['.','.','.','.','.','.','.','*','.','.','.','.','.','.','.','.','.','.','.','.'],
-    ['.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.'],
-    ['.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.'],
-    ['.','.','.','.','.','*','.','.','.','.','.','.','.','*','.','.','.','.','.','.'],
-    ['.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.'],
-    ['.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.'],
-    ['.','.','.','.','.','.','.','.','.','.','.','.','.','.','*','.','.','.','.','.'],
-    ['.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.'],
-    ['.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.'],
-    ['.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.'],
-    ['.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.']
-];
-let lengthY = matrix.length;
-let lengthX = matrix[0].length;
+let matrix = [];
+
+let lengthY = 20;
+let lengthX = 20;
+let classBush = "bush";
+let classAnimal = "animal";
+
+matrix[Symbol.iterator] = function() {
+
+    let currentY = 0;
+    let ly = lengthY;
+    let lx = lengthX;
+
+    return {
+        next() {
+            if (currentY < ly) {
+                matrix.push([]);
+                for (let currentX = 0; currentX < lx; currentX++) {
+                    let choise = Math.round(-0.6 + Math.random() * 3);
+                    if (choise < 0) {
+                        matrix[currentY][currentX] = `<span class = ${classBush}></span>`;
+                    } else {
+                        matrix[currentY][currentX] = `<span></span>`;
+                    }
+                }
+                return {
+                    done: false,
+                    value: currentY++
+                }
+            } else {
+                return {
+                    done: true
+                };
+            }
+        }
+
+    }
+};
+
+for (let item of matrix){}
+
 let coorY = 0;
 let coorX = 0;
 
@@ -31,7 +48,7 @@ function defineStartCoors(lenY, lenX) {
     let randomY = -0.5 + Math.random() * lenY;
     coorX = Math.round(randomX);
     coorY = Math.round(randomY);
-    if (matrix[coorY][coorX] == ".") {
+    if (matrix[coorY][coorX] == `<span></span>`) {
         return matrix[coorY][coorX];
     } else {
         defineStartCoors(lenY, lenX);
@@ -46,11 +63,11 @@ let defineCoors = function defineNextCoors() {
     }
     let tempCoorX = coorX + randomX;
     let tempCoorY = coorY + randomY;
-    if ( (tempCoorY == matrix.length) || (tempCoorY == -1) || (tempCoorX == matrix[0].length) ||
+    if ( (tempCoorY == lengthY) || (tempCoorY == -1) || (tempCoorX == lengthX) ||
         (tempCoorX == -1) ) {
         return defineNextCoors();
     }
-    if (matrix[tempCoorY][tempCoorX] == ".") {
+    if (matrix[tempCoorY][tempCoorX] == `<span></span>`) {
         coorX = tempCoorX;
         coorY = tempCoorY;
         return matrix[coorY][coorX];
@@ -60,23 +77,17 @@ let defineCoors = function defineNextCoors() {
 };
 
 function render(){
-    matrix[coorY][coorX] = "@";
+    matrix[coorY][coorX] = `<span class = ${classAnimal}></span>`;
     let output = ``;
-    for (let item of matrix) {
+    for (let y = 0; y < lengthY; y++) {
         output += `<div class="row">`;
-        for (let j of item) {
-            if (j === ".") {
-                output += `<span></span>`;
-            } else if (j === "*") {
-                output += `<span class="bush"></span>`;
-            } else {
-                output += `<span class="animal"></span>`;
-            }
+        for (let x = 0; x < lengthX; x++) {
+            output += matrix[y][x];
         }
         output += `</div>`;
     }
     document.body.innerHTML = output;
-    matrix[coorY][coorX] = ".";
+    matrix[coorY][coorX] = `<span></span>`;
 }
 
 defineStartCoors(lengthY, lengthX);
