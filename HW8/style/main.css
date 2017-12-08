@@ -1,0 +1,103 @@
+body {
+    background-color: #e0e0e0;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 420px;
+}
+
+.wrapper div {
+    display: inline-block;
+    background-color: #ffe17a;
+    border: 1px solid #8392ff;
+    width: 15px;
+    height: 15px;
+    padding: 2px;
+}
+.tableWrap {
+    text-align: center;
+    margin: 30px 0 30px;
+}
+.deerTable {
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    margin-right: 40px;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: #acacac;
+}
+
+.mouseTable {
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    margin-left: 40px;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: #acacac;
+}
+
+.wrapper .bush {
+    background-image: url(../images/bush.png);
+    background-size: cover;
+}
+.wrapper .bush2 {
+    background-image: url(../images/bigBush.png);
+    background-size: cover;
+}
+.wrapper .tree {
+    background-image: url(../images/smallTree.jpeg);
+    background-size: cover;
+}
+
+.wrapper .tree2 {
+    background-image: url(../images/bigTree.png);
+    background-size: cover;
+}
+.wrapper .tree3 {
+    background-image: url(../images/deadTree.png);
+    background-size: cover;
+}
+.wrapper .fruit {
+    background-image: url(../images/fruit.png);
+    background-size: cover;
+}
+.wrapper .deadFruit {
+    background-image: url(../images/deadFruit.png);
+    background-size: cover;
+}
+
+.wrapper .berry {
+    background-image: url(../images/berry.png);
+    background-size: cover;
+}
+.wrapper .deadBerry {
+    background-image: url(../images/deadBerry.png);
+    background-size: cover;
+}
+
+.wrapper .deer {
+    background-image: url(../images/deer.png);
+    background-size: cover;
+}
+.wrapper .mouse {
+    background-image: url(../images/mouse.png);
+    background-size: cover;
+}
+.wrapper .deadDeer {
+    background-image: url(../images/deadDeer.png);
+    background-size: cover;
+}
+.wrapper .deadMouse {
+    background-image: url(../images/deadMouse.png);
+    background-size: cover;
+}
+
+
+.notVis {
+    visibility: hidden;
+}
