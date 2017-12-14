@@ -40,7 +40,6 @@ const tree = new Tree(0, 0, globeLengthY, globeLengthX, plantsList);
 const tree1 = new Tree(0, 0, globeLengthY, globeLengthX, plantsList);
 const tree2 = new Tree(0, 0, globeLengthY, globeLengthX, plantsList);
 const tree3 = new Tree(0, 0, globeLengthY, globeLengthX, plantsList);
-const tree4 = new Tree(0, 0, globeLengthY, globeLengthX, plantsList);
 const bush = new Bush(0, 0, globeLengthY, globeLengthX, plantsList);
 const bush1 = new Bush(0, 0, globeLengthY, globeLengthX, plantsList);
 const bush2 = new Bush(0, 0, globeLengthY, globeLengthX, plantsList);
@@ -52,7 +51,6 @@ tree.initialPosTree();
 tree1.initialPosTree();
 tree2.initialPosTree();
 tree3.initialPosTree();
-tree4.initialPosTree();
 
 bush.initialPosBush();
 bush1.initialPosBush();
