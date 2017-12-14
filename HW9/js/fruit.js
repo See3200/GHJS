@@ -22,16 +22,15 @@ class Fruit {
         this.count++;
     }
     die(posFruit, animal) {
-        let self = this;
         this.count = 0;
         wrap.children[this.posFruitY].children[this.posFruitX].className = "fruit1";
         if (animal === "deer") {
-            self.grow = function(){
-                if (self.count === 1) {
-                    wrap.children[self.posFruitY].children[self.posFruitX].classList.remove("fruit1");
-                    self.plantsList[posFruit] = null;
+            this.grow = function(){
+                if (this.count === 1) {
+                    wrap.children[this.posFruitY].children[this.posFruitX].classList.remove("fruit1");
+                    this.plantsList[posFruit] = null;
                 }
-                self.count++;
+                this.count++;
             }
         } else if (animal === "mouse") {
             this.grow = function(){
