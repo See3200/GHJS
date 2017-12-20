@@ -174,4 +174,3 @@ class Animal {
 }
 
 export default Animal;
-

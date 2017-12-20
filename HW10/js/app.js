@@ -1,18 +1,15 @@
-
 import Tree from "./tree.js";
-import Fruit from "./fruit.js";
 import Bush from "./bush.js";
-import Berry from "./berry.js";
 import Deer from "./deer.js";
 import Mouse from "./mouse.js";
 
-const time = 500;
+const time = 1000;
 let count = 0;
 const globeLengthY = 20;
 const globeLengthX = 20;
 
 const storage = [];
-let performList = new Map();
+const performList = new Map();
 
 let output = ``;
 
