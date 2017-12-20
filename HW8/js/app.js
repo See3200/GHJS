@@ -194,7 +194,7 @@ class Mouse {
             return this.move();
         }
     }
-    eat(tempPosMouse, elemClass, posMouse) {
+    eat(tempPosDeer, elemClass, posMouse) {
         let tempMove = this.move;
         this.move = function() {
             wrap.children[posMouse].className = "mouse";
@@ -203,7 +203,7 @@ class Mouse {
         if (elemClass === "fruit") {
             setTimeout(function(){
                 self.move = tempMove;
-                wrap.children[tempPosMouse].classList.remove(elemClass);
+                wrap.children[tempPosDeer].classList.remove(elemClass);
             }, 6 * time);
             if (!(this.satiety > 0)) {
                 this.health += 60;
@@ -213,7 +213,7 @@ class Mouse {
         } else {
             setTimeout(function(){
                 self.move = tempMove;
-                wrap.children[tempPosMouse].classList.remove(elemClass);
+                wrap.children[tempPosDeer].classList.remove(elemClass);
             }, 4 * time);
             if (!(this.satiety > 0)) {
                 this.health += 50;
