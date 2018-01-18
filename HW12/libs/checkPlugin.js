@@ -88,7 +88,6 @@
                 });
             } else {
                 elem.next("[data-span]").on("mouseup", function() {
-                    console.log(1);
                     if (!mark) {
                         $(this).css(options.on);
                         mark = 1;
