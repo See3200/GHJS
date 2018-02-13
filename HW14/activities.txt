@@ -1,0 +1,67 @@
+ - git init
+ - git add .
+ - git commit -m "first commit"
+ - git remote add origin https://github.com/See3200/gittest.git
+ - git push -u origin master
+
+ - git checkout -b branch_a
+ - git add .
+ - git commit -m "first commit on branch_a"
+ - git push origin branch_a
+
+ - git checkout -b branch_b
+ - git add .
+ - git commit -m "first commit on branch_b"
+ - git push origin branch_b
+
+ - git checkout -b branch_c
+ - git add .
+ - git commit -m "first commit on branch_c"
+ - git push origin branch_c
+
+ - git checkout branch_b
+ - git merge branch_a
+ - git push origin branch_b
+ - git checkout branch_c
+ - git merge master
+ - git push origin branch_c
+
+ - git branch -d branch_a
+ - git push origin :branch_a
+
+ - git checkout master
+ - git pull origin master
+ - git add .
+ - git commit -m "second commit"
+ - git push origin master
+
+ - git checkout branch_b
+ - git pull origin branch_b
+ - git add .
+ - git commit -m "second commit on branch_b"
+ - git push origin branch_b
+
+ - git checkout branch_c
+ - git pull origin branch_c
+ - git add .
+ - git commit -m "second commit on branch_c"
+ - git push origin branch_c
+
+ - git checkout branch_b
+ - git merge branch_c (conflict)
+ - git add .
+ - git commit -m "resolved a conflict between branch_b and branch_c"
+ - git push origin branch_b
+
+ - git branch -d branch_c
+ - git push origin :branch_c
+
+ - git checkout master
+ - git pull origin master
+ - git merge branch_b (conflict)
+ - git add .
+ - git commit -m "resolved a conflict between master and branch_b"
+ - git push origin master
+
+ - git branch -d branch_b
+ - git push origin :branch_b

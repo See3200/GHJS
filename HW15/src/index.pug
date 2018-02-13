@@ -1,0 +1,28 @@
+doctype html
+html(lang='ru')
+    head
+        meta(charset='UTF-8')
+        title Express
+    body
+
+        .wrapper
+            .form
+                form(action="/" name="form1" method="GET")
+                    input(type="text" name="name1" placeholder="min 2 symbols")
+                    input(type="submit")
+            .form
+                form(action="/" name="form2" method="POST")
+                    input(type="text" name="name2" placeholder="min 5 symbols")
+                    input(type="submit")
+
+            .wrap-count
+                .count Quantity of symbols:
+                    span#quantForm1
+                .count Quantity of symbols:
+                    span#quantForm2
+            .content#content
+
+        //script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+        script(type="text/javascript" src="js/app.js")
+
+
