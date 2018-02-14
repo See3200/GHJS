@@ -11,9 +11,11 @@ function submitForm1(e) {
     quantSymbols.textContent = formData.length;
 
     xhr.onreadystatechange = function() {
-        let cont = document.getElementById("content");
-        cont.innerHTML = xhr.responseText;
-        alert("Response is:" + xhr.responseText);
+        if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            let cont = document.getElementById("content");
+            cont.innerHTML = xhr.responseText;
+            alert("Response is:" + xhr.responseText);
+        }
     };
 
     xhr.send(formData);
@@ -33,9 +35,11 @@ function submitForm2(e) {
     quantSymbols.textContent = formData.length;
 
     xhr.onreadystatechange = function() {
-        let cont = document.getElementById("content");
-        cont.innerHTML = xhr.responseText;
-        alert("Response is:" + xhr.responseText);
+        if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            let cont = document.getElementById("content");
+            cont.innerHTML = xhr.responseText;
+            alert("Response is:" + xhr.responseText);
+        }
     };
 
     xhr.send(formData);
